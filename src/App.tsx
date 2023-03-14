@@ -1,12 +1,8 @@
 import React from 'react';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div>Hi there</div>
-      </header>
+    <div className="h-screen bg-cyan-800">            
     </div>
   );
 }
