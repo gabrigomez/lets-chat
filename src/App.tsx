@@ -1,8 +1,8 @@
 import React from 'react';
-//import * as io from "socket.io-client";
+import * as io from "socket.io-client";
 import { useState } from "react";
 
-//const socket = io.connect("http://localhost:3000");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [user, setUser] = useState("");
@@ -10,8 +10,7 @@ function App() {
   
   const joinRoom = () => {
     if (user !== "" && room !== "") {
-      //socket.emit("enter_room", room);
-      console.log('clicked')      
+      socket.emit("enter_room", room);          
     }
   };
   
