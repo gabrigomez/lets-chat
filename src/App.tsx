@@ -18,11 +18,12 @@ function App() {
   };
   
   return (
-    <div className="h-screen flex flex-col p-2 items-center bg-cyan-400">
-      <h1 className='text-xl mb-6'>
-        Lets chat!
-      </h1>
-      <div>
+    <div className="h-screen flex flex-col p-2 items-center justify-center bg-cyan-400">
+      {!showChat && (
+        <div>
+          <h1 className='text-xl mb-6'>
+            Lets chat!
+          </h1>
           <input
             type="text"
             placeholder="Your Name"
@@ -42,7 +43,8 @@ function App() {
           <button className='bg-blue-400 p-2 rounded-full hover:bg-blue-500 duration-200' onClick={joinRoom}>
             Enter
           </button>            
-      </div>
+        </div>
+      )}      
       {showChat && (
         <Chat socket={socket} user={user} room={room} />
       )}

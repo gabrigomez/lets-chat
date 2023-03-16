@@ -37,7 +37,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
    }, [socket]);
   
   return (
-    <div>
+    <div className='h-2/4'>
       <div>
         <p>Let's chat!</p>
       </div>
@@ -52,7 +52,6 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
                 <p>
                   {message.author}
                 </p>
-
               </div>
             </div>
           )
