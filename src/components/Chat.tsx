@@ -6,8 +6,13 @@ interface Message {
   message?: string,
   time?: string,
 }
+interface Props {
+  socket: any,
+  user: string,
+  room: string,
+}
 
-export const Chat = (socket: any, user: string, room: string) => {
+export const Chat: React.FC<Props> = ({socket, user, room}) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState<Array<Message>>([{}]);
 
@@ -18,7 +23,7 @@ export const Chat = (socket: any, user: string, room: string) => {
         room: room,
         message: currentMessage,
         time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
-      };
+      };      
       await socket.emit("send_message", messageContent);
       setMessageList((list) => [...list, messageContent]);
       setCurrentMessage("");
