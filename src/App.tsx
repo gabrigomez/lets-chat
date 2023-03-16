@@ -18,16 +18,16 @@ function App() {
   };
   
   return (
-    <div className="h-screen flex flex-col p-2 items-center justify-center bg-cyan-400">
+    <div className="h-screen flex flex-col p-2 items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500">
       {!showChat && (
-        <div>
-          <h1 className='text-xl mb-6'>
+        <div className='h-2/4 flex flex-col items-center'>
+          <h1 className='text-5xl mb-6'>
             Lets chat!
           </h1>
           <input
             type="text"
             placeholder="Your Name"
-            className='mr-4'
+            className='mb-4 rounded-lg focus:outline-none p-1'
             onChange={(event) => {
               setUser(event.target.value);
             }}
@@ -35,13 +35,15 @@ function App() {
           <input
             type="text"
             placeholder="Room ID..."
-            className='mr-4'
+            className='mb-4 rounded-lg focus:outline-none p-1'
             onChange={(event) => {
               setRoom(event.target.value);
             }}
           />
-          <button className='bg-blue-400 p-2 rounded-full hover:bg-blue-500 duration-200' onClick={joinRoom}>
-            Enter
+          <button 
+            className='bg-blue-400 px-4 py-1 rounded-full hover:bg-blue-500 duration-200' 
+            onClick={joinRoom}>
+              Enter
           </button>            
         </div>
       )}      
