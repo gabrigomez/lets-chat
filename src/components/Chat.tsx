@@ -45,12 +45,15 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
         {messageList?.map((message) => {
           return (
             <div className='flex'>
-              <p className='mr-4'>
-                {message.message}
-              </p>
-              <p>
-                {message.author}
-              </p>
+              <div>
+                <p className='mr-4'>
+                  {message.message}
+                </p>
+                <p>
+                  {message.author}
+                </p>
+
+              </div>
             </div>
           )
         })}

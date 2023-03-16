@@ -8,10 +8,12 @@ const socket = io.connect("http://localhost:3001");
 function App() {
   const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
+  const [showChat, setShowChat] = useState(false);
   
   const joinRoom = () => {
     if (user !== "" && room !== "") {
-      socket.emit("enter_room", room);               
+      socket.emit("enter_room", room);   
+      setShowChat(true);            
     };    
   };
   
@@ -41,7 +43,9 @@ function App() {
             Enter
           </button>            
       </div>
-      <Chat socket={socket} user={user} room={room} />
+      {showChat && (
+        <Chat socket={socket} user={user} room={room} />
+      )}
     </div>
   );
 }
