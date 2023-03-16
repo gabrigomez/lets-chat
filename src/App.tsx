@@ -22,7 +22,7 @@ function App() {
       {!showChat && (
         <div className='h-2/4 flex flex-col items-center'>
           <h1 className='text-5xl mb-6'>
-            Lets chat!
+            LETS CHAT!
           </h1>
           <input
             type="text"
@@ -41,9 +41,11 @@ function App() {
             }}
           />
           <button 
-            className='bg-blue-400 px-4 py-1 rounded-full hover:bg-blue-500 duration-200' 
+            className='flex bg-blue-500 rounded-full hover:bg-blue-600 duration-200 font-bold text-slate-200' 
             onClick={joinRoom}>
-              Enter
+              <p className='px-4 py-2 '>
+                ENTER
+              </p>
           </button>            
         </div>
       )}      
