@@ -17,7 +17,6 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
   const [messageList, setMessageList] = useState<Array<Message>>([{}]);
 
   const sendMessage = async () => {
-    console.log(messageList)
     if(currentMessage !== "") {
       const messageContent = {
         author: user,
@@ -29,12 +28,10 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       setMessageList((list) => [...list, messageContent]);
       setCurrentMessage("");
     };
-    console.log(messageList)
   };
 
    useEffect(() => {
     socket.on("receive_message", (data: any) => {
-      console.log('chamou')
       setMessageList((list) => [...list, data]);
     });
    }, [socket]);

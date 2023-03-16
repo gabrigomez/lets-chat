@@ -12,8 +12,7 @@ function App() {
   const joinRoom = () => {
     if (user !== "" && room !== "") {
       socket.emit("enter_room", room);               
-    }
-    console.log(user, room)
+    };    
   };
   
   return (
