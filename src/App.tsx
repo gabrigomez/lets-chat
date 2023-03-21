@@ -3,6 +3,8 @@ import * as io from "socket.io-client";
 import { useState } from "react";
 import { Chat } from './components/Chat';
 
+import { SiWechat } from 'react-icons/si';
+
 const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
     <div className="h-screen flex flex-col p-2 items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500">
       {!showChat && (
         <div className='h-2/4 flex flex-col items-center'>
+          <SiWechat className='text-3xl mb-2 text-white animate-pulse' />
           <h1 className='text-5xl mb-6'>
             LETS CHAT!
           </h1>
