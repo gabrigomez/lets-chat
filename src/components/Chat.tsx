@@ -30,34 +30,36 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
     };
   };
 
-   useEffect(() => {
+  useEffect(() => {
     socket.on("receive_message", (data: any) => {
       setMessageList((list) => [...list, data]);
     });
-   }, [socket]);
+  }, [socket]);
   
   return (
     <div className='flex flex-col w-3/4 sm:w-2/4 md:w-2/6 border border-white'>
       <div className='h-16 bg-blue-500'>
         <p>Let's chat!</p>
       </div>
-      <div className='h-80 bg-blue-100'>
+      <div className='h-80 bg-blue-100'>        
         {messageList?.map((message) => {
           return (
             <div className='flex my-2 ml-1'>
-              <div>
-                <p className='mr-4 bg-blue-300 p-1 rounded-md'>
-                  {message.message}
-                </p>
-                <div className='flex text-xs ml-1'>
-                  <p className='mr-1'>
-                    {message.author}
+              {message.message && (
+                <div>
+                  <p className='mr-4 bg-blue-300 p-1 rounded-md'>
+                    {message.message}
                   </p>
-                  <p>
-                    {message.time}
-                  </p>
-                </div>
-              </div>
+                  <div className='flex text-xs ml-1'>
+                    <p className='mr-1'>
+                      {message.author}
+                    </p>
+                    <p>
+                      {message.time}
+                    </p>
+                  </div>
+                </div>              
+              )}
             </div>
           )
         })}
