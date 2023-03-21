@@ -43,25 +43,47 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       </div>
       <div className='h-80 bg-blue-100'>        
         {messageList?.map((message) => {
-          return (
-            <div className='flex my-2 ml-1'>
-              {message.message && (
-                <div>
-                  <p className='mr-4 bg-blue-300 p-1 rounded-md'>
-                    {message.message}
-                  </p>
-                  <div className='flex text-xs ml-1'>
-                    <p className='mr-1'>
-                      {message.author}
+          if(message.author === user) {
+            return (
+              <div className='flex justify-end my-2 ml-1'>
+                {message.message && (
+                  <div>
+                    <p className='mr-4 bg-cyan-300 p-1 rounded-md'>
+                      {message.message}
                     </p>
-                    <p>
-                      {message.time}
+                    <div className='flex text-xs ml-1'>
+                      <p className='mr-1'>
+                        {message.author}
+                      </p>
+                      <p>
+                        {message.time}
+                      </p>
+                    </div>
+                  </div>              
+                )}
+              </div>
+            )
+          } else {
+            return (
+              <div className='flex my-2 ml-1'>
+                {message.message && (
+                  <div>
+                    <p className='mr-4 bg-blue-300 p-1 rounded-md'>
+                      {message.message}
                     </p>
-                  </div>
-                </div>              
-              )}
-            </div>
-          )
+                    <div className='flex text-xs ml-1'>
+                      <p className='mr-1'>
+                        {message.author}
+                      </p>
+                      <p>
+                        {message.time}
+                      </p>
+                    </div>
+                  </div>              
+                )}
+              </div>
+            )
+          }
         })}
       </div>
       <div className='h-16 bg-blue-500'>
