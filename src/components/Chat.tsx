@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ScrollToBottom from "react-scroll-to-bottom";
 
 interface Message {
   author?: string,
@@ -41,7 +42,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       <div className='h-16 bg-blue-500'>
         <p>Let's chat!</p>
       </div>
-      <div className='h-80 bg-blue-100 overflow-y-auto'>        
+      <ScrollToBottom className='h-80 bg-blue-100 overflow-y-auto'>        
         {messageList?.map((message) => {
           if(message.author === user) {
             return (
@@ -85,7 +86,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
             )
           }
         })}
-      </div>
+      </ScrollToBottom>
       <div className='h-16 bg-blue-500'>
         <input
           type="text"
