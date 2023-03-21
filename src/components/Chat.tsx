@@ -37,16 +37,16 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
    }, [socket]);
   
   return (
-    <div className='flex flex-col h-3/4 w-3/4 border border-white p-1'>
-      <div className='h-1/6'>
+    <div className='flex flex-col w-3/4 sm:w-2/4 md:w-2/6 border border-white'>
+      <div className='h-16 bg-blue-500'>
         <p>Let's chat!</p>
       </div>
-      <div className='h-4/6'>
+      <div className='h-80 bg-blue-100'>
         {messageList?.map((message) => {
           return (
-            <div className='flex'>
+            <div className='flex my-2 ml-1'>
               <div>
-                <p className='mr-4 bg-blue-200 p-1 rounded-md'>
+                <p className='mr-4 bg-blue-300 p-1 rounded-md'>
                   {message.message}
                 </p>
                 <div className='flex text-xs ml-1'>
@@ -62,10 +62,10 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
           )
         })}
       </div>
-      <div className='h-1/6 mt-2'>
+      <div className='h-16 bg-blue-500'>
         <input
           type="text"
-          className='mr-2 focus:outline-none w-4/5'
+          className='mx-1 mt-2 focus:outline-none w-4/5'
           value={currentMessage}
           onChange={(event) => {
             setCurrentMessage(event.target.value);
@@ -75,7 +75,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
           }}
         />
         <button
-          className='bg-blue-400 rounded-lg p-1' 
+          className='bg-blue-400 p-1 mt-2 ml-1 rounded-lg ' 
           onClick={sendMessage}>
             Send
           </button>
