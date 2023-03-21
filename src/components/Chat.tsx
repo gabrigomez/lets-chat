@@ -41,7 +41,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       <div className='h-16 bg-blue-500'>
         <p>Let's chat!</p>
       </div>
-      <div className='h-80 bg-blue-100'>        
+      <div className='h-80 bg-blue-100 overflow-y-auto'>        
         {messageList?.map((message) => {
           if(message.author === user) {
             return (
