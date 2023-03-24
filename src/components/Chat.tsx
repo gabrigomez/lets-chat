@@ -77,10 +77,9 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
           }
         })}
       </ScrollToBottom>
-      <div className='h-16 bg-blue-500'>
-        <input
-          type="text"
-          className='mx-1 mt-2 focus:outline-none w-4/5'
+      <div className='flex items-center justify-around h-16 bg-blue-500'>
+        <textarea         
+          className='ml-1 focus:outline-none resize-none overflow-hidden w-4/5'
           value={currentMessage}
           onChange={(event) => {
             setCurrentMessage(event.target.value);
@@ -90,7 +89,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
           }}
         />
         <button
-          className='bg-blue-400 p-1 mt-2 ml-1 rounded-lg ' 
+          className='bg-blue-400 p-1 h-8 rounded-lg' 
           onClick={sendMessage}>
             Send
           </button>
