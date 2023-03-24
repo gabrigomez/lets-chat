@@ -89,7 +89,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
           }}
         />
         <button
-          className='bg-blue-400 p-1 h-8 rounded-lg' 
+          className='bg-blue-400 p-1 h-8 rounded-lg hover:bg-blue-300 duration-300' 
           onClick={sendMessage}>
             Send
           </button>
