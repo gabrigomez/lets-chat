@@ -49,7 +49,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
               <div className='flex justify-end my-2 ml-1'>
                 {message.message && (
                   <div className='flex flex-col mr-2'>
-                    <p className='bg-cyan-300 p-1 rounded-md'>
+                    <p className='bg-cyan-300 p-1 rounded-md break-all'>
                       {message.message}
                     </p>                    
                     <p className='text-xs self-end'>
@@ -64,7 +64,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
               <div className='flex justify-start my-2 ml-1'>
                 {message.message && (
                   <div className='flex flex-col mr-2'>
-                    <p className='bg-blue-300 p-1 rounded-md'>
+                    <p className='bg-blue-300 p-1 rounded-md break-all'>
                       {message.message}
                     </p>                    
                     <p className='text-xs self-start'>
