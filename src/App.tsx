@@ -18,6 +18,12 @@ function App() {
       setShowChat(true);            
     };    
   };
+
+  const logout = () => {
+    setUser("");
+    setRoom("");
+    setShowChat(false);
+  }
   
   return (
     <div className="h-screen flex flex-col p-2 items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500">
@@ -53,7 +59,15 @@ function App() {
         </div>
       )}      
       {showChat && (
-        <Chat socket={socket} user={user} room={room} />
+        <div className='flex flex-col w-full items-center'>
+          <Chat socket={socket} user={user} room={room} />
+          <button
+            onClick={logout} 
+            className='flex bg-blue-500 rounded-full hover:bg-blue-600 
+            duration-200 mt-10 p-1 text-slate-200'>
+              Sair
+          </button>
+        </div>
       )}
     </div>
   );
