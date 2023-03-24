@@ -5,7 +5,7 @@ import { Chat } from './components/Chat';
 
 import { SiWechat } from 'react-icons/si';
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://lets-chat-api.vercel.app/");
 
 function App() {
   const [user, setUser] = useState("");
