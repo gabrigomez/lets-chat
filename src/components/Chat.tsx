@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ScrollToBottom from "react-scroll-to-bottom";
+import { AiOutlineEdit } from 'react-icons/ai';
+import { BsFillCheckCircleFill, BsSendFill } from 'react-icons/bs';
 
 interface Message {
   author?: string,
@@ -11,10 +13,6 @@ interface Props {
   socket: any,
   user: string,
   room: string,
-}
-
-interface Users {
-  user: string,
 }
 
 export const Chat: React.FC<Props> = ({socket, user, room}) => {
@@ -47,17 +45,17 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border rounded-sm border-white shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>
         {openEdit && (
-          <div className='flex'>
+          <div className='flex w-full justify-between'>
             <p className='text-xl text-slate-200'>
               {currentRoom}
             </p>
             <button onClick={() => setOpenEdit(!setOpenEdit)}>
-              <p>Edit</p>
+              <AiOutlineEdit className='text-xl mr-4 hover:text-slate-200 duration-300' />
             </button>
           </div>
         )}
         {!openEdit && (
-          <div className='flex'>
+          <div className='flex w-full justify-between'>
             <input 
               type="text"
               onChange={(event) => {
@@ -65,7 +63,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
               }}
               />
             <button onClick={() => setOpenEdit(true)}>
-              Save
+              <BsFillCheckCircleFill className='text-xl mr-4 hover:text-slate-200 duration-300' />
             </button>
           </div>
         )}
@@ -127,11 +125,10 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
             event.key === "Enter" && sendMessage();
           }}
         />
-        <button
-          className='bg-blue-400 p-1 h-8 mr-1 rounded-lg hover:bg-blue-300 duration-300' 
-          onClick={sendMessage}>
-            Send
-          </button>
+        <BsSendFill
+          className='bg-blue-400 p-1 mr-1 h-8 w-8 rounded-lg text-white hover:bg-blue-300 duration-300' 
+          onClick={sendMessage} 
+        />        
       </div>
     </div>
   )
