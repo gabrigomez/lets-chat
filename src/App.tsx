@@ -63,8 +63,8 @@ function App() {
           <Chat socket={socket} user={user} room={room} />
           <button
             onClick={logout} 
-            className='flex bg-blue-500 rounded-full hover:bg-blue-600 
-            duration-200 mt-10 p-1 text-slate-200'>
+            className='flex bg-blue-500 rounded-xl hover:bg-blue-600 
+            duration-200 mt-10 p-2 text-slate-200'>
               Sair
           </button>
         </div>
