@@ -13,9 +13,15 @@ interface Props {
   room: string,
 }
 
+interface Users {
+  user: string,
+}
+
 export const Chat: React.FC<Props> = ({socket, user, room}) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState<Array<Message>>([{}]);
+  const [openEdit, setOpenEdit] = useState(true);
+  const [currentRoom, setCurrentRoom] = useState(`Let's Chat`);
 
   const sendMessage = async () => {
     if(currentMessage !== "") {
@@ -36,11 +42,34 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
-  
+
   return (
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border rounded-sm border-white shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>
-        <p className='text-xl text-slate-200'>{user}</p>
+        {openEdit && (
+          <div className='flex'>
+            <p className='text-xl text-slate-200'>
+              {currentRoom}
+            </p>
+            <button onClick={() => setOpenEdit(!setOpenEdit)}>
+              <p>Edit</p>
+            </button>
+          </div>
+        )}
+        {!openEdit && (
+          <div className='flex'>
+            <input 
+              type="text"
+              onChange={(event) => {
+                setCurrentRoom(event.target.value);
+              }}
+              />
+            <button onClick={() => setOpenEdit(true)}>
+              Save
+            </button>
+          </div>
+        )}
+
       </div>
       <ScrollToBottom className='h-80 bg-blue-100 overflow-y-auto'>        
         {messageList?.map((message) => {
