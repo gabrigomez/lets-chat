@@ -41,8 +41,6 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
     });
   }, [socket]);
 
-  //console.log(user)
-
   return (
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border border-blue-300 rounded-sm shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>
@@ -80,7 +78,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
                 {message.message && (
                   <div className='flex flex-col mr-2'>
                     <div className='bg-blue-300 p-1 rounded-md break-all'>
-                      <p className='text-sm text-black font-semibold'>
+                      <p className='text-sm text-black font-semibold min-w-[50px]'>
                         {message.author}
                       </p>
                       <p>
