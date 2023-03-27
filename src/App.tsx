@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Chat } from './components/Chat';
 
 import { SiWechat } from 'react-icons/si';
+import { IoExit } from 'react-icons/io5';
 
 const socket = io.connect("https://lets-chat-api-zv4u.onrender.com/", { transports : ['websocket'] });
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="h-screen flex flex-col p-2 items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500">
       {!showChat && (
-        <div className='h-2/4 flex flex-col items-center'>
+        <div className='h-2/4 flex flex-col'>
           <SiWechat className='text-3xl mb-2 text-white animate-pulse' />
           <h1 className='text-5xl mb-6'>
             LETS CHAT!
@@ -63,9 +64,15 @@ function App() {
           <Chat socket={socket} user={user} room={room} />
           <button
             onClick={logout} 
-            className='flex bg-blue-500 rounded-xl hover:bg-blue-600 
-            duration-200 mt-10 p-2 text-slate-200'>
+            className='flex justify-center self-start bg-blue-500 rounded-xl hover:bg-blue-600 
+            duration-300 p-2 h-8 w-10 mt-6 ml-4 hover:w-20 group'
+          >
+            <IoExit
+              className='text-slate-200'
+            />
+            <p className='hidden group-hover:block duration-300 text-sm text-white ml-1 '>
               Sair
+            </p>
           </button>
         </div>
       )}
