@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="h-screen flex flex-col p-2 items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500">
       {!showChat && (
-        <div className='h-2/4 flex flex-col'>
+        <div className='h-2/4 flex flex-col items-center'>
           <SiWechat className='text-3xl mb-2 text-white animate-pulse' />
           <h1 className='text-5xl mb-6'>
             LETS CHAT!
@@ -53,7 +53,7 @@ function App() {
           <button 
             className='flex bg-blue-500 rounded-full hover:bg-blue-600 duration-200 font-bold text-slate-200' 
             onClick={joinRoom}>
-              <p className='px-4 py-2 '>
+              <p className='px-4 py-2'>
                 ENTER
               </p>
           </button>            
