@@ -41,6 +41,8 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
     });
   }, [socket]);
 
+  //console.log(user)
+
   return (
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border border-blue-300 rounded-sm shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>

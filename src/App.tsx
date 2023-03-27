@@ -64,7 +64,7 @@ function App() {
           <Chat socket={socket} user={user} room={room} />
           <button
             onClick={logout} 
-            className='flex justify-center self-start bg-blue-500 rounded-xl hover:bg-blue-600 
+            className='flex justify-center bg-blue-500 rounded-xl hover:bg-blue-600 
             duration-300 p-2 h-8 w-10 mt-6 ml-4 hover:w-20 group'
           >
             <IoExit
