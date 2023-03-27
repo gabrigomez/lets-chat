@@ -42,7 +42,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
   }, [socket]);
 
   return (
-    <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border rounded-sm border-white shadow-xl'>
+    <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border border-blue-300 rounded-sm shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>
         {openEdit && (
           <div className='flex w-full justify-between'>
@@ -116,17 +116,21 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       </ScrollToBottom>
       <div className='flex items-center justify-around h-16 bg-blue-500'>
         <textarea         
-          className='mx-1 focus:outline-none resize-none overflow-hidden w-full'
+          className='mx-1 p-1 focus:outline-none resize-none overflow-hidden w-full'
+          rows={1}
           value={currentMessage}
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }}
           onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
+            if(event.key === "Enter") {
+              event.preventDefault();
+              sendMessage();
+            }            
           }}
         />
         <BsSendFill
-          className='bg-blue-400 p-1 mr-1 h-8 w-8 rounded-lg text-white hover:bg-blue-300 duration-300' 
+          className='bg-blue-400 p-2 mr-1 h-8 w-8 rounded-lg text-white hover:bg-blue-300 duration-300' 
           onClick={sendMessage} 
         />        
       </div>
