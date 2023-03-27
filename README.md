@@ -10,9 +10,9 @@ A aplicação está disponível em https://letschatoficial.netlify.app/
 - Express
 - Socket.io
 
-O Backend desta aplicação está disponível [aqui](https://github.com/gabrigomez/lets-chat-api)
+O Backend desta aplicação está disponível [aqui](https://github.com/gabrigomez/lets-chat-api).
 
-Backend: [Render](https://render.com/)
+Backend: [Render](https://render.com/) <br/>
 Frontend: [Netlify](https://www.netlify.com/) 
 
 ## Previews :eyes:	
