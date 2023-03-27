@@ -45,25 +45,26 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-2/6 border border-blue-300 rounded-sm shadow-xl'>
       <div className='flex items-center pl-4 h-16 bg-blue-500'>
         {openEdit && (
-          <div className='flex w-full justify-between'>
-            <p className='text-xl text-slate-200'>
+          <div className='flex w-full'>
+            <p className='text-xl text-slate-200 mr-1'>
               {currentRoom}
             </p>
             <button onClick={() => setOpenEdit(!setOpenEdit)}>
-              <AiOutlineEdit className='text-xl mr-4 hover:text-slate-200 duration-300' />
+              <AiOutlineEdit className='text-md mb-2 text-blue-600 hover:text-slate-200 duration-300' />
             </button>
           </div>
         )}
         {!openEdit && (
-          <div className='flex w-full justify-between'>
+          <div className='flex w-full'>
             <input 
+              className='mr-2 outline-none'
               type="text"
               onChange={(event) => {
                 setCurrentRoom(event.target.value);
               }}
               />
             <button onClick={() => setOpenEdit(true)}>
-              <BsFillCheckCircleFill className='text-xl mr-4 hover:text-slate-200 duration-300' />
+              <BsFillCheckCircleFill className='text-md text-white hover:text-blue-200 duration-300' />
             </button>
           </div>
         )}
@@ -116,7 +117,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
       </ScrollToBottom>
       <div className='flex items-center justify-around h-16 bg-blue-500'>
         <textarea         
-          className='mx-1 p-1 focus:outline-none resize-none overflow-hidden w-full'
+          className='mx-1 p-1 focus:outline-none rounded-sm resize-none overflow-hidden w-11/12'
           rows={1}
           value={currentMessage}
           onChange={(event) => {
