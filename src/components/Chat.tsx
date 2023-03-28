@@ -43,7 +43,7 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
 
   return (
     <div className='flex flex-col w-11/12 sm:w-2/4 md:w-3/6 xl:w-2/6 border border-blue-300 rounded-sm shadow-xl'>
-      <div className='flex items-center pl-4 h-16 bg-blue-500'>
+      <div className='flex items-center pl-4 h-16 border-b border-white bg-blue-500'>
         {openEdit && (
           <div className='flex w-full'>
             <p className='text-xl text-slate-200 mr-1'>
@@ -70,7 +70,8 @@ export const Chat: React.FC<Props> = ({socket, user, room}) => {
         )}
 
       </div>
-      <ScrollToBottom className='h-80 bg-blue-100 overflow-y-auto'>        
+      <ScrollToBottom 
+        className='h-80 bg-blue-100 overflow-y-auto bg-gradient-to-b from-sky-600 to-blue-700'>        
         {messageList?.map((message) => {
           if(message.author === user) {
             return (
