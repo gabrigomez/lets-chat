@@ -56,7 +56,14 @@ function App() {
               <p className='px-4 py-2'>
                 ENTER
               </p>
-          </button>            
+          </button>
+          <div className='mt-20'>
+            <a 
+              href='https://github.com/gabrigomez/lets-chat'
+              className='text-cyan-500 text-sm hover:text-white duration-300 '>
+              develop by gabrigomez
+            </a>
+          </div>            
         </div>
       )}      
       {showChat && (
