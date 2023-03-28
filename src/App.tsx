@@ -11,12 +11,18 @@ const socket = io.connect("https://lets-chat-api-zv4u.onrender.com/", { transpor
 function App() {
   const [user, setUser] = useState("");
   const [room, setRoom] = useState("");
+  const [error, setError] = useState("")
   const [showChat, setShowChat] = useState(false);
   
   const joinRoom = () => {
     if (user !== "" && room !== "") {
       socket.emit("enter_room", room);   
       setShowChat(true);            
+    } else {
+      setError("Nome e sala são obrigatórios");
+      setTimeout(() => {
+        setError("");
+      }, 4000);
     };    
   };
 
@@ -56,8 +62,13 @@ function App() {
               <p className='px-4 py-2'>
                 ENTER
               </p>
-          </button>
-          <div className='mt-20'>
+          </button>          
+          <div className='flex justify-center mt-4 w-full h-1/4'>
+            <p className='text-red-300'>
+              {error}
+            </p>
+          </div>
+          <div className='mt-10'>
             <a 
               href='https://github.com/gabrigomez/lets-chat'
               className='text-cyan-500 text-sm hover:text-white duration-300 '>
